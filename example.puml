@@ -1,0 +1,6 @@
+@startuml
+Alice -> Bob: Hello
+Bob --> Alice: Hi back
+Alice -> Charlie: Are you there?
+Charlie --> Alice: Yes
+@enduml

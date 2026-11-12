@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PeekUML Support</title>
+  <meta name="description" content="Help and support for PeekUML, the PlantUML Quick Look previewer for macOS.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="icon.png" alt="">PeekUML</a>
+      <nav>
+        <a href="./" aria-current="page">Support</a>
+        <a href="privacy/">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <img src="icon.png" alt="PeekUML app icon">
+      <div>
+        <h1>PeekUML Support</h1>
+        <p class="lede">See rendered PlantUML diagrams when you press Space in Finder.</p>
+      </div>
+    </div>
+
+    <img class="shot" src="screenshot.jpg" width="1440" height="900"
+         alt="The PeekUML window showing a rendered PlantUML activity diagram">
+
+    <div class="callout">
+      <p><strong>Need help?</strong> Read the questions below first. If they don't fix it,
+      <a href="https://github.com/visvamba/peekuml-pages/issues/new">open an issue on GitHub</a>.
+      Say which macOS version you use, and if you can, attach a <code>.puml</code> file that
+      shows the problem. Remove anything confidential from the file first, because GitHub issues are public.</p>
+    </div>
+
+    <h2>Getting started</h2>
+    <ol>
+      <li>Install PeekUML from the Mac App Store.</li>
+      <li><strong>Open PeekUML once.</strong> This tells macOS about the Quick Look extension and the
+        PlantUML file types.</li>
+      <li>In Finder, select a <code>.puml</code>, <code>.plantuml</code>, <code>.iuml</code> or
+        <code>.wsd</code> file and press <kbd>Space</kbd>.</li>
+    </ol>
+    <p>You can also use the PeekUML app as a viewer. Open a file with <strong>File › Open</strong>
+      or drag it onto the window. Use the Samples menu to see example diagrams, and use
+      <strong>Copy</strong> to put the rendered diagram on the clipboard.</p>
+    <p class="meta">PeekUML needs macOS 13 Ventura or later. It includes everything it needs to
+      render diagrams, so you don't need to install Java or Graphviz.</p>
+
+    <h2>Troubleshooting</h2>
+
+    <details>
+      <summary>Pressing Space shows plain text or a generic icon</summary>
+      <p>Open PeekUML once, then try again. If the preview still doesn't appear, check that the extension is turned on:</p>
+      <ul>
+        <li><strong>macOS 15 and later:</strong> System Settings › General › Login Items &amp;
+          Extensions. Scroll to Extensions, click the ⓘ next to <em>Quick Look</em>, and turn on PeekUML.</li>
+        <li><strong>macOS 13 and 14:</strong> System Settings › Privacy &amp; Security ›
+          Extensions › Quick Look, then turn on PeekUML.</li>
+      </ul>
+      <p>If it still doesn't work, run these commands in Terminal to reset Quick Look:</p>
+      <pre><code>qlmanage -r
+qlmanage -r cache</code></pre>
+      <p>If another app is also set to preview <code>.puml</code> files, macOS may use that app
+        instead. Remove the other previewer, or contact us so we can look at the conflict.</p>
+    </details>
+
+    <details>
+      <summary>"cannot include" or undefined macro errors</summary>
+      <p>PeekUML blocks <code>!include</code> on purpose. This covers local files, URLs and the
+        PlantUML standard library (for example <code>!include &lt;C4/C4_Container&gt;</code>).
+        Because of this, previewing a file from someone else can't read your other files or connect
+        to the internet. If a diagram needs included definitions, copy them into the file itself.</p>
+    </details>
+
+    <details>
+      <summary>The preview shows an error instead of a diagram</summary>
+      <p>PlantUML shows its error message in the preview. Usually this is a syntax error, or the file
+        is missing its <code>@startuml</code> / <code>@enduml</code> lines. Fix the source and press
+        <kbd>Space</kbd> again.</p>
+    </details>
+
+    <details>
+      <summary>A large diagram is cut off at the edge</summary>
+      <p>PeekUML can render diagrams up to 16,384 pixels on each side. If a diagram is bigger, it is
+        cut off and the app shows a notice. Split the diagram into smaller ones.</p>
+    </details>
+
+    <details>
+      <summary>Does PeekUML need Java, Graphviz or an internet connection?</summary>
+      <p>No. The PeekUML app includes a small Java runtime and PlantUML's built-in layout engine.
+        It renders every diagram on your Mac and never connects to the internet.</p>
+    </details>
+
+    <h2>Contact</h2>
+    <p>For bug reports, feature requests and questions, use
+      <a href="https://github.com/visvamba/peekuml-pages/issues">GitHub Issues</a>.
+      You need a free GitHub account to post. For refunds, use Apple's
+      <a href="https://reportaproblem.apple.com">Report a Problem</a> page, because the App Store
+      handles all purchases.</p>
+
+    <h2>Credits</h2>
+    <p>PeekUML renders diagrams with <a href="https://plantuml.com">PlantUML</a>, which is used under
+      the MIT License. The app's About window lists the full licence notices.</p>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Visvamba Nathan · <a href="privacy/">Privacy Policy</a></div>
+  </footer>
+</body>
+</html>
